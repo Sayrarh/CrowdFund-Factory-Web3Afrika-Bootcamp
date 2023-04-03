@@ -1,0 +1,10 @@
+Address of CrowdFund Factory 0x0B03A5EEd7ff05260E5bebBA106B644715D5CB9d
+First CrowdFund Contract is 0xF8Ea6944B12500c4a2b3E4cae9C21E0e855014C0
+Second CrowdFund Contract is 0x9Ba461A1396ba07937f56fd292B08F2fD2783385
+Third CrowdFund Contract is 0x6efbf3937DBcc8Cf4eda49118583c340FA930eCD
+All crowd fund project created from factory is [
+  '0xF8Ea6944B12500c4a2b3E4cae9C21E0e855014C0',
+  '0x9Ba461A1396ba07937f56fd292B08F2fD2783385',
+  '0x6efbf3937DBcc8Cf4eda49118583c340FA930eCD'
+]
+CrowdFund Factory Length is BigNumber { value: "3" }
