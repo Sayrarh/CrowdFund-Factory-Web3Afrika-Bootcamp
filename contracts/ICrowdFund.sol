@@ -8,6 +8,9 @@ interface ICrowdFund{
     }
     function factory() external view returns(address);
     function projectTitle() external view returns(string memory);
+    function projectAdmin() external view returns(address);
+    function projectBenefiary() external view returns(address);
+    function projectFundWithdrawn() external view returns(bool);
     function initialized() external view returns(bool);
     function projectDuration() external view returns(uint32);
     function projectTarget() external view returns(uint256);

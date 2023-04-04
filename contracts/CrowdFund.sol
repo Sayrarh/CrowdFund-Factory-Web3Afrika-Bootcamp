@@ -7,17 +7,15 @@ contract CrowdFund{
     event ProjectFunded(address indexed caller, uint256 indexed amountMade);
 
     //State Variables
-    address projectAdmin; 
-    address projectBenefiary;
+    address public projectAdmin; 
+    address public projectBenefiary;
     address immutable public factory;
     string public projectTitle;
     uint32 public projectDuration;  //
     uint256 public projectTarget; //Amount to raise the project
     bool public initialized;
-    bool projectFundWithdrawn;
+    bool public projectFundWithdrawn;
 
-    
-    
 
     ICrowdFund.Donorslist[] allDonorInformation;
 
@@ -61,15 +59,19 @@ contract CrowdFund{
     function transferToBenefiary(address _ben, uint256 amount) external payable{
         require(msg.sender == projectAdmin, "Not Project Admin");
         require(block.timestamp > projectDuration, "Funding still in progress");
-        require(amount == projectTarget, "Incorrect Amount");
+      
+        require((amount * 1e18) == projectTarget, "Incorrect Amount");
         require(_ben == projectBenefiary, "NotProjectBenefiaciary");
-        require(!projectFundWithdrawn, "Funds Transfered");
 
         uint256 contractBalance = address(this).balance;
 
         require(contractBalance >= projectTarget, "Target Not Reached");
 
-        (bool success, ) = _ben.call{value: amount}("");
+        require(!projectFundWithdrawn, "Funds Transfered");
+
+        uint256 amountTosend = amount * 1e18;
+      
+        (bool success, ) = _ben.call{value: amountTosend}("");
         require(success, "Transaction Failed");
 
         projectFundWithdrawn = true;
