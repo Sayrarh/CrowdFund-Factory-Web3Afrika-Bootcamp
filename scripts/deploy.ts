@@ -26,14 +26,14 @@ async function main() {
   console.log("First CrowdFund Contract is", GetFirstCrowdFundAddress);
 
   //Setting up or creating the Second crowdfund project
-  const CreateSecCrowdFundProject = await crowdfundFactory.createCrowdFundProject("Finance", projectTarget, projectDuration, AdminAddr, BenAddr );
+  const CreateSecCrowdFundProject = await crowdfundFactory.createCrowdFundProject("Finance", projectTarget, projectDuration, AdminAddr, BenAddr);
   await CreateSecCrowdFundProject.wait();
 
   const GetSecCrowdFundAddress = await crowdfundFactory.crowdFundAddress(2);
   console.log("Second CrowdFund Contract is", GetSecCrowdFundAddress);
 
   //Setting up or creating the third crowdfund project
-  const CreateThirdCrowdFundProject = await crowdfundFactory.createCrowdFundProject("Agriculture", projectTarget, projectDuration, AdminAddr, BenAddr );
+  const CreateThirdCrowdFundProject = await crowdfundFactory.createCrowdFundProject("Agriculture", projectTarget, projectDuration, AdminAddr, BenAddr);
   await CreateThirdCrowdFundProject.wait();
 
   const GetThirdCrowdFundAddress = await crowdfundFactory.crowdFundAddress(3);

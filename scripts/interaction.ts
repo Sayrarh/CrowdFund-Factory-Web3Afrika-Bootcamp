@@ -55,9 +55,6 @@ async function main() {
   //Get contract balance
   const Balance = await Interaction.getContractBalance();
   console.log("Contract Balance is", Balance);
-
-
-
   
  
 }
